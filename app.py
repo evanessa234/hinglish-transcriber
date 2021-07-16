@@ -36,16 +36,21 @@ ydl_opts = {
 @app.route("/", methods = ["GET", "POST"])
 def hello_world():
     # return "<p>Hello, World!</p>"
-    return render_template("index.html")
+    return render_template("index1.html")
     
 @app.route("/linking", methods = ["GET", "POST"])
 def link_to_mp3():
     video_link = str(request.form["video_link"])
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_link])
-    return render_template("temp.html", video_link=video_link)
+    # return render_template("temp.html", video_link=video_link)
+    my_full_text = "this is your full text"
+    return render_template("summary.html", my_full_text = my_full_text)
 
-
+@app.route("/temp", methods = ["GET", "POST"])
+def full_text():
+    my_full_text = str(request.form["textarea_text"])
+    return render_template("temp.html", my_full_text = my_full_text)
 
 if __name__ == "__main__":
     app.run(debug=True)

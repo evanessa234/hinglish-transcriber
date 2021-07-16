@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <style>
+        html {
+        height: 100%;
+        }
+        body {
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            color: #333;
+        }
+        .wrapper {
+        background-color: #fff;
+        width: 500pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 20pt;
+        border-radius: 10px;
+        box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+        margin: 0;
+        padding-bottom: 5pt;
+        border-bottom: 1px solid #ddd;
+        }
+        input[type="text"] {
+        height: 20pt;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        outline: none;
+        font-size: 14px;
+        margin-top: 5pt;
+        }
+        .options {
+        width: 100%;
+        height: 30pt;
+        margin-top: 5pt;
+        border-top: 1px solid #ddd;
+        }
+
+        iframe {
+        border: 0;
+        width: 100%;
+        margin-bottom: 5pt;
+        height: 250pt;
+        }
+        .seperator {
+        display: inline;
+        border-left: 1px solid #ddd;
+        height: 30pt;
+        }
+        button {
+        margin: 0;
+        padding: 0;
+        height: 30pt;
+        width: 30pt;
+        background-color: #fff;
+        border: 0;
+        cursor: pointer;
+        color: #333;
+        }
+        button:active {
+        color: #333;
+        }
+        select {
+        height: 30pt;
+        -webkit-appearance: none;
+        border: 0;
+        padding-left: 5pt;
+        padding-right: 5pt;
+        outline: none;
+        }
+        input[type="number"] {
+        height: 30pt;
+        border: 0;
+        padding: 0;
+        padding-left: 5pt;
+        padding-right: 5pt;
+        outline: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 style="text-align: center;">Your English Transcript</h1>
+        <div class="row">
+        <div class="col-sm-6" >
+            <h3 style="text-indent: 110px;">Full Text</h3>
+            <form action="/temp", method="post">
+                <textarea style="background-color: #ffffe6" id="confirmationText" class="text" cols="40" rows ="20" name="textarea_text">
+                    {{my_full_text}}
+                </textarea>
+               <input type="submit" value="Summarize" class="submitButton">
+            </form>   
+        </div>
+        <div class="col-sm-4"><h3 style="text-indent: 62px;">Summarized Text</h3>
+            <textarea style="background-color: #ffffe6" id="confirmationText" class="text" cols="40" rows ="20" name="textarea_text">
+                {%if my_full_text%}
+                    {{my_full_text}}
+                {%else%}
+                {%endif%}
+            </textarea>
+        </div>
+        </div>
+      </div>      
+</body>
+</html>
